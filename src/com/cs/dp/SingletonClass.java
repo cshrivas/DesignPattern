@@ -1,4 +1,19 @@
 package com.cs.dp;
 
 public class SingletonClass {
+    private static SingletonClass instance;
+    public String name;
+
+    private SingletonClass(){}
+
+    public static SingletonClass getInstance(){
+        if(instance==null){
+            synchronized(SingletonClass.class){
+                if(instance==null){
+                    instance=new SingletonClass();
+                }
+            }
+        }
+        return instance;
+    }
 }
